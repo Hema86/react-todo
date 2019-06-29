@@ -9,17 +9,26 @@ export default class AddTodo extends Component {
   }
 
   onChange = (event) =>{
-      this.setState({
-          task:event.target.value
+    this.setState({
+      task:event.target.value
       })
+  
   }
 
   onSubmit = (event) =>{
+    if(this.state.task) {
       this.props.addTodo(this.state.task)
       event.preventDefault()
       this.setState({
         task:''
       })
+    
+    }
+    else {
+      alert('enter a valid task')
+      event.preventDefault()
+  }
+   
   }
   render () {
     return (
