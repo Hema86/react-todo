@@ -15,19 +15,33 @@ class App extends Component {
       todos: [...this.state.todos, item]
     })
   }
+ deleteTask = (task) => {
+   let todos = Object.assign([], this.state.todos)
+   let index = todos.indexOf(task)
+   todos.splice(index, 1)
+   this.setState({
+     todos
+   })
+ }
   render () {
     return (
-      <div className='App'>
-      {this.state.todos.length>0
-      ? <div>
+      this.state.todos.length>0
+      ? <div className='todo-container'>
+         <h1 className='title'>Todos</h1> 
         <AddTodo addTodo={this.addTodo} />
-        <TodoItems todos={this.state.todos}/>
+        {this.state.todos.map(todo => {
+          return <TodoItems todo={todo} deleteTask={this.deleteTask}/>
+        })
+        }
         </div>
-      : <AddTodo addTodo={this.addTodo} />
-      }  
-      </div>
+      : <div className='todo-container'>
+          <h1 className='title'>Todos</h1> 
+          <AddTodo addTodo={this.addTodo} />
+        </div>
+       
     )
   }
+  
 }
 
 export default App

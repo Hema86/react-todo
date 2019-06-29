@@ -3,3 +3,24 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+.input-field{
+  border: 5px solid #1f5c87;
+  padding: 10px;
+  margin-bottom: 16px;
+  width:400px;
+}
+
+.title{
+  color:#1f5c87;
+}
+.task{
+  border: 3px solid #1f5c87; 
+  padding: 10px;
+  width:270px;
+  margin-bottom: 16px;
+}
+.cancel-btn{
+  color:red;
+  /* opacity: 0.1; */
+}
+

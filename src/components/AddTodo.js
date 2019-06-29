@@ -17,12 +17,15 @@ export default class AddTodo extends Component {
   onSubmit = (event) =>{
       this.props.addTodo(this.state.task)
       event.preventDefault()
+      this.setState({
+        task:''
+      })
   }
   render () {
     return (
       <div className='add-todo'>
         <form onSubmit={this.onSubmit}>
-          <input type='text' onChange={this.onChange} />
+          <input type='text' className='input-field' onChange={this.onChange} value={this.state.task}/>
         </form>
       </div>
 
